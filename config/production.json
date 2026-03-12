@@ -1,0 +1,4 @@
+{
+    "name": "Node production",
+    "db": "mongodb://localhost/FoodAmazon"
+}
