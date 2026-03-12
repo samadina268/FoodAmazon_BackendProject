@@ -4,15 +4,16 @@ const mongoose = require("mongoose")
 const register = require("./routes/auth/register")
 const signin = require("./routes/auth/signIn")
 const config = require("config")
-const db = config.db
+const db = process.env.DB
 
 app.use(express.json())
 app.use("/home", register)
 app.use("/home", signin)
 
+
 mongoose.connect("mongodb://localhost/FoodAmazon")
 .then(result => console.log("connected to mongoose db ...", (db)))
-.catch(err => console.log(err))
+.catch(err => console.log("mongodb connection error", err))
 console.log("process:", process.env.NODE_ENV)
 
 const PORT = process.env.PORT || 4000
