@@ -1,4 +1,4 @@
 {
-    "jwtsecretkey": "user-jwtkey",
+    "jwtsecretkey": "user_jwtkey",
     "DB": "db_url"
 }
