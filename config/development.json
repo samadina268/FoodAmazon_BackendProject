@@ -1,4 +1,4 @@
 {
     "name": "Node development",
-    "db": "mongodb://localhost/FoodAmazon_test"
+    "db": "mongodb://localhost/FoodAmazon"
 }
