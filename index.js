@@ -18,6 +18,7 @@ app.get("/", (req,res) => {
 mongoose.connect(`${db}`)
 .then(() => console.log("connected to mongoose db ..."))
 .catch(err => console.log("mongodb connection error", err))
+console.log("process:", process.env.NODE_ENV)
 
 
 const PORT = process.env.PORT || 4000
