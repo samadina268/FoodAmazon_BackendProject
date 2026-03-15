@@ -13,7 +13,6 @@ router.post("/product", async (req,res) => {
     }
 
     const newProduct = new product({
-       image: req.body.image,
        productname: req.body.productname,
        secondname: req.body.secondname,
        rating: req.body.rating,
