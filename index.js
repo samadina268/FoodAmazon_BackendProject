@@ -11,7 +11,7 @@ app.use("/home", register)
 app.use("/home", signin)
 
 
-mongoose.connect(db)
+mongoose.connect(`${db}`)
 .then(() => console.log("connected to mongoose db ..."))
 .catch(err => console.log("mongodb connection error", err))
 console.log("process:", process.env.NODE_ENV)
