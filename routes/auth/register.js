@@ -4,7 +4,8 @@ const {user, validateUser} = require("../../models/user")
 const bcrypt = require("bcrypt")
 
 router.post("/register", async (req,res) => {
-    // validate the body
+try{
+        // validate the body
     const {error} = validateUser(req.body)
     if (error){
         return res.status(400).json(error.details[0].message)
@@ -35,6 +36,9 @@ router.post("/register", async (req,res) => {
         fullname: dbUser.email,
         email: dbUser.email
     })
+} catch(error){
+    return res.status(500).json({message: error.messages})
+}
 })
 
 module.exports = router

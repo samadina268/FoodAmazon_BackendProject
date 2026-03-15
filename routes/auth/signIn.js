@@ -6,7 +6,8 @@ const jwt = require("jsonwebtoken")
 const joi = require("joi")
 
 router.post("/signin", async (req,res) => {
-    // validate error
+    try{
+        // validate error
     const Schema = joi.object({
             email: joi.string().email({minDomainSegments: 2, tlds: {allow: ["com", "net"]}}).required(),
             password: joi.string().min(7).max(15).required()
@@ -34,6 +35,9 @@ router.post("/signin", async (req,res) => {
     const tokenGeneration = checkUser.tokenGeneration()
      res.json({message: "login succesfully", token: tokenGeneration})
 
+    } catch(error){
+        return res.status(500).json({messages: error.message})
+    }
 })
 
 module.exports = router
