@@ -4,14 +4,14 @@ const mongoose = require("mongoose")
 const register = require("./routes/auth/register")
 const signin = require("./routes/auth/signIn")
 const config = require("config")
-const db = config.get("DB_URL")
+const db = process.env.DB_URL
 
 app.use(express.json())
 app.use("/home", register)
 app.use("/home", signin)
 
 
-mongoose.connect(db)
+mongoose.connect(`${db}`)
 .then(() => console.log("connected to mongoose db ..."))
 .catch(err => console.log("mongodb connection error", err))
 
