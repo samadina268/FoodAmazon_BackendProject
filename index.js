@@ -10,6 +10,10 @@ app.use(express.json())
 app.use("/home", register)
 app.use("/home", signin)
 
+app.get("/", (req,res) => {
+    res.json("connected to Food Amazon DB")
+})
+
 
 mongoose.connect(`${db}`)
 .then(() => console.log("connected to mongoose db ..."))
