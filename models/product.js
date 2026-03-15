@@ -35,4 +35,4 @@ function validateProduct(productInfo){
 
 const product = mongoose.model("product", productSchema)
 
-module.expoerts = {product, validateProduct}
+module.exports = {product, validateProduct}

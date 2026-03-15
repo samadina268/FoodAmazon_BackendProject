@@ -78,6 +78,11 @@ router.post("/product", async (req,res) => {
 router.get("/product", async (req,res) => {
     try{
     const products = await product.find()
+
+    if(!products || product.length === 0){
+        res.status(404).json("message: No products found in product DB")
+    }
+
     res.status(200).json(products)
     } catch(error){
         res.status(500).json({message: error.message})
