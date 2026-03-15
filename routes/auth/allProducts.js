@@ -6,7 +6,8 @@ const {product, validateProduct} = require("../../models/product")
 // to post product 
 router.post("/product", async (req,res) => {
     // validate the body
-    const {error} = validateProduct(req.body)
+    try{
+        const {error} = validateProduct(req.body)
     if(error){
         return res.status(400).json(error.details[0].message)
     }
@@ -26,6 +27,9 @@ router.post("/product", async (req,res) => {
     })
     const savedProduct = await newProduct.save()
     res.status(201).json({message: "product add successfully !!", product: savedProduct})
+    } catch(error){
+       res.status(500).json({message: error.message}) 
+    }
     
 
 })
