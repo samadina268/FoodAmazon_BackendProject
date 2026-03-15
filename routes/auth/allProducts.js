@@ -80,7 +80,7 @@ router.get("/product", async (req,res) => {
     const products = await product.find()
 
     if(!products || product.length === 0){
-        res.status(404).json("message: No products found in product DB")
+        return res.status(404).json("message: No products found in product DB")
     }
 
     res.status(200).json(products)
