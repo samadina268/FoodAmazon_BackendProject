@@ -4,9 +4,10 @@ const mongoose = require("mongoose")
 const register = require("./routes/auth/register")
 const signin = require("./routes/auth/signIn")
 const product = require("./routes/auth/allProducts")
-const config = require("config")
+const cors = require("cors")
 const db = process.env.DB_URL
 
+app.use(cors())
 app.use(express.json())
 app.use("/home", register)
 app.use("/home", signin)
