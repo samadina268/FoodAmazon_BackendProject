@@ -33,7 +33,7 @@ try{
 
     res.json({
         id: dbUser._id,
-        fullname: dbUser.email,
+        fullname: dbUser.fullname,
         email: dbUser.email
     })
 } catch(error){
