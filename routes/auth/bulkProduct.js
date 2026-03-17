@@ -14,7 +14,7 @@ router.post("/bulkproduct", async (req,res) =>{
         image: req.body.image,
         productname: req.body.productname,
         aboutproduct: req.body.aboutproduct,
-        btn: req.bodybtn
+        btn: req.body.btn
     })
 
     const savedProduct = await newProduct.save()
