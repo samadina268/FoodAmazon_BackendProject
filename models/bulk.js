@@ -20,4 +20,4 @@ function validatebulkproduct(data) {
 
 const product = mongoose.model("bulkProduct" , bulkSchema)
 
-module.exports = {product, validatebulkproduct}
+module.exports = {product, val}

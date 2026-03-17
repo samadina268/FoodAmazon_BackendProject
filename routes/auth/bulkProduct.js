@@ -36,7 +36,7 @@ router.get("/bulkproduct", async (req,res) => {
     if (!products || products.length === 0){
         return res.status(400).json("message: no product available in the db")
     }
-    res.status(201).json(products)
+    res.status(200).json(products)
     }catch(error){
         return res.status(500).json({message: error.message})
     }
