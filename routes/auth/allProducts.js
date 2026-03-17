@@ -25,6 +25,7 @@ router.post("/product", async (req,res) => {
        btn1: req.body.btn1,
        btn2: req.body.btn2
     })
+    
     const savedProduct = await newProduct.save()
     res.status(201).json({message: "product add successfully !!", product: {id: savedProduct._id,
         productname: savedProduct.productname,

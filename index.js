@@ -4,6 +4,7 @@ const mongoose = require("mongoose")
 const register = require("./routes/auth/register")
 const signin = require("./routes/auth/signIn")
 const product = require("./routes/auth/allProducts")
+const bulkProduct = require("./routes/auth/bulkProduct")
 const cors = require("cors")
 const db = process.env.DB_URL
 
@@ -12,6 +13,7 @@ app.use(express.json())
 app.use("/home", register)
 app.use("/home", signin)
 app.use("/home", product)
+app.use("/home", bulkProduct)
 
 app.get("/", (req,res) => {
     res.send("connected to Food Amazon DB")
