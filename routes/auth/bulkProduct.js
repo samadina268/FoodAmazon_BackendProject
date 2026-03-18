@@ -12,6 +12,7 @@ router.post("/bulkproduct", async (req,res) =>{
 
     const newProduct = new product({
         image: req.body.image,
+        cartid: req.body.id,
         productname: req.body.productname,
         aboutproduct: req.body.aboutproduct,
         btn: req.body.btn
@@ -20,6 +21,7 @@ router.post("/bulkproduct", async (req,res) =>{
     const savedProduct = await newProduct.save()
     res.status(201).json({message: "product added sucessfully", product: {
         id: savedProduct._id,
+        cartid: savedProduct.cartid,
         image: savedProduct.image,
         productname: savedProduct.productname,
         aboutproduct: savedProduct.aboutproduct

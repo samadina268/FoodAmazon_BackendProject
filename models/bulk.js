@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 const joi = require("joi")
 
 const bulkSchema = new mongoose.Schema({
+  cartid: String,
   image: String,
   productname: String,
   aboutproduct: String,
@@ -10,6 +11,7 @@ const bulkSchema = new mongoose.Schema({
 
 function validatebulkproduct(data) {
     const schema = joi.object({
+        cartid: joi.string().required(),
         image: joi.string().required(),
         productname: joi.string().required(),
         aboutproduct: joi.string().required(),
