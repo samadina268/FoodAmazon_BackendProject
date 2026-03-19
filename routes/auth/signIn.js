@@ -33,7 +33,7 @@ router.post("/signin", async (req,res) => {
     
     // create token
     const tokenGeneration = checkUser.tokenGeneration()
-     res.json({message: "login succesfully", token: tokenGeneration})
+     return res.status(200).json({message: "login succesfully", token: tokenGeneration})
 
     } catch(error){
         return res.status(500).json({messages: error.message})

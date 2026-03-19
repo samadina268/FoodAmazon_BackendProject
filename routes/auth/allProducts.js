@@ -14,23 +14,23 @@ router.post("/product", async (req,res) => {
 
     const newProduct = new product({
        image: req.body.image,
-       productname: req.body.productname,
-       secondname: req.body.secondname,
+       productName: req.body.productname,
+       secondName: req.body.secondname,
        rating: req.body.rating,
        review: req.body.review,
        price: req.body.price,
        btn: req.body.btn,
-       newprice: req.body.newprice,
-       cartid: req.body.cartid,
+       newPrice: req.body.newprice,
+       cartId: req.body.cartid,
        btn1: req.body.btn1,
        btn2: req.body.btn2
     })
-    
+
     const savedProduct = await newProduct.save()
     res.status(201).json({message: "product add successfully !!", product: {id: savedProduct._id,
-        productname: savedProduct.productname,
-        cartid: savedProduct.cartid,
-        newprice: savedProduct.newprice,
+        productName: savedProduct.productName,
+        cartId: savedProduct.cartId,
+        newPrice: savedProduct.newPrice,
         rating: savedProduct.rating
 
     }})

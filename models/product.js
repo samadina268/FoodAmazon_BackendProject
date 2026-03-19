@@ -19,14 +19,14 @@ const productSchema = new mongoose.Schema({
 function validateProduct(productInfo){
    const schema = joi.object({
      image: joi.string().required(),
-     productname: joi.string().required(),
-     secondname: joi.string().required(),
+     productName: joi.string().required(),
+     secondName: joi.string().required(),
      rating: joi.string().required(),
      review: joi.string().required(),
      price: joi.string().required(),
      btn: joi.string().required(),
-     newprice: joi.string().required(),
-     cartid: joi.string().required(),
+     newPrice: joi.string().required(),
+     cartId: joi.string().required(),
      btn1: joi.string().required(),
      btn2: joi.string().required()
    })
@@ -36,3 +36,5 @@ function validateProduct(productInfo){
 const product = mongoose.model("product", productSchema)
 
 module.exports = {product, validateProduct}
+
+
