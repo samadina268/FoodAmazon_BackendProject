@@ -15,14 +15,14 @@ router.post("/product", async (req,res) => {
     const newProduct = new product({
         id: req.body.id,
        image: req.body.image,
-       productName: req.body.productname,
-       secondName: req.body.secondname,
+       productName: req.body.productName,
+       secondName: req.body.secondName,
        rating: req.body.rating,
        review: req.body.review,
        price: req.body.price,
        btn: req.body.btn,
-       newPrice: req.body.newprice,
-       cartId: req.body.cartid,
+       newPrice: req.body.newPrice,
+       cartId: req.body.cartId,
        btn1: req.body.btn1,
        btn2: req.body.btn2
     })
