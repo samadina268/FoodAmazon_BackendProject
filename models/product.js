@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 const joi = require("joi")
 
 const productSchema = new mongoose.Schema({
+   "id": String,
    "image": String,
    "productname": String,
    "secondname": String,
@@ -18,6 +19,7 @@ const productSchema = new mongoose.Schema({
 // validate product coming into the db
 function validateProduct(productInfo){
    const schema = joi.object({
+      id: joi.string().required,
      image: joi.string().required(),
      productName: joi.string().required(),
      secondName: joi.string().required(),
