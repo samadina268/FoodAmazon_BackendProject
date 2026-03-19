@@ -1,42 +1,40 @@
-const mongoose = require("mongoose")
-const joi = require("joi")
+const mongoose = require("mongoose");
+const joi = require("joi");
 
 const productSchema = new mongoose.Schema({
-   "id": String,
-   "image": String,
-   "productName": String,
-   "secondName": String,
-   "rating": String,
-   "review": String,
-   "price": Number,
-   "btn": String,
-   "newPrice": Number,
-   "cartId": String,
-   "btn1": String,
-   "btn2": String,
-}) 
+  id: String,
+  image: String,
+  productName: String,
+  secondName: String,
+  rating: String,
+  review: String,
+  price: Number,
+  btn: String,
+  newPrice: Number,
+  cartId: String,
+  btn1: String,
+  btn2: String,
+});
 
 // validate product coming into the db
-function validateProduct(productInfo){
-   const schema = joi.object({
-     id: joi.string().required(),
-     image: joi.string().required(),
-     productName: joi.string().required(),
-     secondName: joi.string().required(),
-     rating: joi.string().required(),
-     review: joi.string().required(),
-     price: joi.number().required(),
-     btn: joi.string().required(),
-     newPrice: joi.number().required(),
-     cartId: joi.string().required(),
-     btn1: joi.string().required(),
-     btn2: joi.string().required()
-   })
-   return schema.validate(productInfo)
+function validateProduct(productInfo) {
+  const schema = joi.object({
+    id: joi.string().required(),
+    image: joi.string().required(),
+    productName: joi.string().required(),
+    secondName: joi.string().required(),
+    rating: joi.string().required(),
+    review: joi.string().required(),
+    price: joi.number().required(),
+    btn: joi.string().required(),
+    newPrice: joi.number().required(),
+    cartId: joi.string().required(),
+    btn1: joi.string().required(),
+    btn2: joi.string().required(),
+  });
+  return schema.validate(productInfo);
 }
 
-const product = mongoose.model("product", productSchema)
+const product = mongoose.model("product", productSchema);
 
-module.exports = {product, validateProduct}
-
-
+module.exports = { product, validateProduct };
