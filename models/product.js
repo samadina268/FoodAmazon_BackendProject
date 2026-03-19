@@ -4,14 +4,14 @@ const joi = require("joi")
 const productSchema = new mongoose.Schema({
    "id": String,
    "image": String,
-   "productname": String,
-   "secondname": String,
+   "productName": String,
+   "secondName": String,
    "rating": String,
    "review": String,
    "price": Number,
    "btn": String,
-   "newprice": Number,
-   "cartid": String,
+   "newPrice": Number,
+   "cartId": String,
    "btn1": String,
    "btn2": String,
 }) 
