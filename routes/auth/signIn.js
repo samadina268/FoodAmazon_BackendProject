@@ -36,7 +36,7 @@ router.post("/signin", async (req, res) => {
       return res.status(400).json("invalid email or password");
     }
 
-    // create token
+    // create tokenGeneration
     const tokenGeneration = checkUser.tokenGeneration();
     return res
       .status(200)
