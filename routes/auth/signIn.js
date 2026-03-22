@@ -24,7 +24,7 @@ router.post("/signin", async (req, res) => {
     // check if email exist
     const checkUser = await user.findOne({ email: req.body.email });
     if (!checkUser) {
-      return res.status(400).json("invalid email");
+      return res.status(400).json("invalid email or password");
     }
 
     // check if password is correct
@@ -33,7 +33,7 @@ router.post("/signin", async (req, res) => {
       checkUser.password,
     );
     if (!checkPassword) {
-      return res.status(400).json("invalid password");
+      return res.status(400).json("invalid email or password");
     }
 
     // create token
