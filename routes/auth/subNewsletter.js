@@ -9,7 +9,7 @@ router.post("/subnewsletter", async (req,res) => {
     res.status(400).json(error.details[0].message)
    }  
 
-   const checkemail = await new subnewsletter.findOne({email: req.body.email})
+   const checkemail = await subnewsletter.findOne({email: req.body.email})
    if(checkemail){
     res.status(400).json("Newsletter already subscribed")
    }
