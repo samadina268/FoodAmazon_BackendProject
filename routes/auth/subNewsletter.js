@@ -11,7 +11,7 @@ router.post("/subnewsletter", async (req,res) => {
 
    const checkemail = await subnewsletter.findOne({email: req.body.email})
    if(checkemail){
-    res.status(400).json("Newsletter already subscribed")
+    res.status(400).json("email already subscribed")
    }
 
    const newEmail = new subnewsletter({
