@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { user, validateBilling } = require("../../models/billing");
+const { billingInfo, validateBilling } = require("../../models/billing");
 
 router.post("/billinginfo", async (req, res) => {
   try {
@@ -9,7 +9,7 @@ router.post("/billinginfo", async (req, res) => {
       return res.status(400).json(error.details[0].message);
     }
 
-    const newBillingInfo = new user({
+    const newBillingInfo = new billingInfo({
       email: req.body.email,
       deliverTo: req.body.deliverTo,
       country: req.body.country,
@@ -38,5 +38,18 @@ router.post("/billinginfo", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+router.get("/billinginfo", async (req,res) =>{
+  try{
+    const getinfo = await billingInfo.find()
+    if (!getinfo || getinfo.length === 0){
+        return res.status(400).json("No billing Info available")
+    }
+    return res.status(200).json(getinfo)
+  }catch(error){
+    return res.status(500).json({message: error.message})
+  }
+})
+
 
 module.exports = router;

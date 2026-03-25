@@ -36,6 +36,6 @@ function validateBilling(billingInfo){
 }
 
 
-const user = mongoose.model("billingInfo", billingSchema)
+const billingInfo = mongoose.model("billingInfo", billingSchema)
 
-module.exports = {user, validateBilling}
+module.exports = {billingInfo, validateBilling}
