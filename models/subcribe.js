@@ -10,7 +10,7 @@ const subNewsletter = new mongoose.Schema({
 
 function validateNewletter(data){
     const schema = joi.object({
-        email: joi.String().email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
+        email: joi.string().email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
       .required(),
     })
     return schema.validate(data)
