@@ -38,7 +38,7 @@ router.post("/product", async (req, res) => {
           cartId: savedProduct.cartId,
           newPrice: savedProduct.newPrice,
           rating: savedProduct.rating,
-        },
+        }
       });
   } catch (error) {
     res.status(500).json({ message: error.message });

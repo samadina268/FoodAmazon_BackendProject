@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { user, validateUser } = require("../../models/user");
+const authorize = require("../../middleware/authorisation")
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const joi = require("joi");
@@ -40,7 +41,7 @@ router.post("/signin", async (req, res) => {
     const tokenGeneration = checkUser.tokenGeneration();
     return res
       .status(200)
-      .json({ message: "login succesfully", token: tokenGeneration });
+      .json({ message: "login successfully", token: tokenGeneration });
   } catch (error) {
     return res.status(500).json({ messages: error.message });
   }

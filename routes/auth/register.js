@@ -32,7 +32,7 @@ router.post("/register", async (req, res) => {
     const dbUser = await newUser.save();
 
     res.json({
-      id: dbUser._id,
+      _id: dbUser._id,
       fullname: dbUser.fullname,
       email: dbUser.email,
     });

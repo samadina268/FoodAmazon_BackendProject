@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const joi = require("joi");
-const config = require("config");
 const jwt = require("jsonwebtoken");
 
 const userSchema = new mongoose.Schema({
@@ -18,8 +17,9 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods.tokenGeneration = function () {
   const token = jwt.sign(
-    { id: this._id, email: this.email },
+    { _id: this._id, email: this.email },
     process.env.USER_JWTKEY,
+    {expiresIn: "1d"}
   );
   return token;
 };

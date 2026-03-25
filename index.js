@@ -5,6 +5,7 @@ const register = require("./routes/auth/register");
 const signin = require("./routes/auth/signIn");
 const product = require("./routes/auth/allProducts");
 const bulkProduct = require("./routes/auth/bulkProduct");
+const billingInfo = require("./routes/auth/billingInfo")
 const cors = require("cors");
 const db = process.env.DB_URL;
 
@@ -14,6 +15,7 @@ app.use("/home", register);
 app.use("/home", signin);
 app.use("/home", product);
 app.use("/home", bulkProduct);
+app.use("/checkout", billingInfo)
 
 app.get("/", (req, res) => {
   res.send("connected to Food Amazon DB");
