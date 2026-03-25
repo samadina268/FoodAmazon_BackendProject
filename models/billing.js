@@ -28,7 +28,7 @@ function validateBilling(billingInfo){
       address: joi.string().required(),
       city: joi.string().required(),
       area: joi.string().required(),
-      zipcode: joi.string().required(),
+      zipCode: joi.string().required(),
       phoneNumber: joi.string().required(),
       orderNote: joi.string(),
     })
